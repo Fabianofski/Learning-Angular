@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  padding: 1rem;
+
+  border: 2px solid #2d2d2d;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 3rem;
+
+  border: none;
+
+  resize: none;
+}
+
+hr {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 100%;
+}
+
+.tools button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 1rem;
+  aspect-ratio: 1 / 1;
+  background-color: white;
+
+  border: 1px solid #2d2d2d;
+  border-radius: 25%;
+}
+
+.tools button:hover {
+  background-color: red;
+  cursor: pointer;
+}
