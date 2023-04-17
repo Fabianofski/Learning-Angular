@@ -33,6 +33,11 @@
   place-items: center;
   gap: 2rem;
 
+  width: 90%;
+  max-width: 150rem;
+}
+
+.list-container > * {
   width: 100%;
 }
 

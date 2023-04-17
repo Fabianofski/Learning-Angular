@@ -1,7 +1,3 @@
-app-list {
-  width: 100%;
-}
-
 .list {
   display: flex;
   flex-direction: column;
@@ -21,4 +17,60 @@ app-list {
   border: 3px solid #2d2d2d;
   border-radius: 1rem;
   box-shadow: var(--box-shadow);
+}
+
+.list h3 {
+  text-align: center;
+}
+
+.list > * {
+  width: 100%;
+}
+
+.card-container {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.add-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.add-btn {
+  flex: 1;
+
+  width: 100%;
+  background-color: orange;
+
+  color: white;
+
+  border: 1px solid orange;
+  border-radius: 10px;
+
+  transition: background-color 0.2s ease-in;
+}
+
+.add-btn:hover {
+  background-color: white;
+  color: orange;
+
+  cursor: pointer;
+}
+
+.add-input {
+  flex: 4;
+
+  padding: 5px;
+
+  border: 1px solid black;
+  border-radius: 5px;
+
+  transition: border 0.2s ease-in;
+}
+
+.add-input:focus {
+  outline: none;
+  border: 1px solid orange;
 }

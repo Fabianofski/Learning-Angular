@@ -1,10 +1,15 @@
 <div class="list">
   <h3>{{ listTitle }}</h3>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <div>
-    <input type="text" [(ngModel)]="text" />
-    <button>Add</button>
+  <div class="add-form">
+    <input
+      class="add-input"
+      type="text"
+      [(ngModel)]="text"
+      placeholder="Enter card content..."
+    />
+    <button class="add-btn" type="button" (click)="addCard()">ADD</button>
+  </div>
+  <div class="card-container">
+    <app-card *ngFor="let cardText of cards" [cardText]="cardText"></app-card>
   </div>
 </div>
