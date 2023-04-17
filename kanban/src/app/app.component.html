@@ -1,8 +1,10 @@
 <div class="container">
   <h1>{{ title.toUpperCase() }}</h1>
   <div class="list-container">
-    <app-list [listTitle]="'ToDo'"></app-list>
-    <app-list [listTitle]="'Doing'"></app-list>
-    <app-list [listTitle]="'Done'"></app-list>
+    <app-list
+      *ngFor="let list of lists"
+      [list]="list"
+      (cardMoved)="moveCard($event)"
+    ></app-list>
   </div>
 </div>

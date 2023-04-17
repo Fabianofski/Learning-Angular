@@ -1,5 +1,5 @@
-<div class="list">
-  <h3>{{ listTitle }}</h3>
+<div class="list" #listRef>
+  <h3>{{ list.name }}</h3>
   <div class="add-form">
     <input
       class="add-input"
@@ -10,6 +10,10 @@
     <button class="add-btn" type="button" (click)="addCard()">ADD</button>
   </div>
   <div class="card-container">
-    <app-card *ngFor="let cardText of cards" [cardText]="cardText"></app-card>
+    <app-card
+      *ngFor="let cardText of list.cards; let index = index"
+      [cardText]="cardText"
+      (cardMoved)="onCardMoved($event, index)"
+    ></app-card>
   </div>
 </div>

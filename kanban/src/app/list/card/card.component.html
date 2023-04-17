@@ -1,14 +1,17 @@
 <div class="card" [ngClass]="{ 'dragged-card': dragging }" #card>
-  <div
-    class="drag-area"
-    (mouseup)="endDrag($event)"
-    (mousedown)="startDrag($event)"
-    [ngClass]="{ dragging: dragging }"
-  >
+  <div class="toolbar">
+    <div
+      class="drag-area"
+      (mousedown)="startDrag($event)"
+      (mouseup)="endDrag($event)"
+      [ngClass]="{ dragging: dragging }"
+    ></div>
     <div class="tools">
-      <button (click)="deleteCard($event)" class="delete-button">X</button>
+      <button (click)="deleteCard()" class="delete-button">X</button>
     </div>
   </div>
   <hr />
-  <textarea [(ngModel)]="cardText"></textarea>
+  <div class="card-text">
+    <textarea [(ngModel)]="cardText"></textarea>
+  </div>
 </div>

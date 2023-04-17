@@ -1,12 +1,22 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+  OnInit,
+} from '@angular/core';
+import { Card } from './card.model';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() cardText = '';
+  @Output() cardMoved = new EventEmitter<Card>();
   @ViewChild('card') card: ElementRef<HTMLDivElement>;
   dragging = false;
   offsetX = 0;
@@ -18,9 +28,7 @@ export class CardComponent {
     });
   }
 
-  deleteCard(e: Event) {
-    (<HTMLInputElement>e.target).parentElement.parentElement.remove();
-  }
+  deleteCard() {}
 
   startDrag(e: MouseEvent) {
     let rect = this.card.nativeElement.getBoundingClientRect();
@@ -41,6 +49,10 @@ export class CardComponent {
   }
 
   endDrag(e: MouseEvent) {
+    this.cardMoved.emit({
+      location: { x: e.x, y: e.y },
+      text: this.cardText,
+    });
     this.card.nativeElement.style.width = '100%';
     this.dragging = false;
   }
