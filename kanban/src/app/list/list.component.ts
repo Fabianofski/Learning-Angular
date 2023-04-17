@@ -34,8 +34,11 @@ export class ListComponent {
     console.log(this.list.cards);
   }
 
-  onCardMoved(card: Card, index: number) {
+  onCardRemove(index: number) {
     this.list.cards.splice(index, 1);
+  }
+
+  onCardMoved(card: Card) {
     this.cardMoved.emit(card);
   }
 }

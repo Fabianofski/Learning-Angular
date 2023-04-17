@@ -17,6 +17,7 @@ import { Card } from './card.model';
 export class CardComponent implements OnInit {
   @Input() cardText = '';
   @Output() cardMoved = new EventEmitter<Card>();
+  @Output() removeCard = new EventEmitter<void>();
   @ViewChild('card') card: ElementRef<HTMLDivElement>;
   dragging = false;
   offsetX = 0;
@@ -28,7 +29,9 @@ export class CardComponent implements OnInit {
     });
   }
 
-  deleteCard() {}
+  tryDeleteCard() {
+    this.removeCard.emit();
+  }
 
   startDrag(e: MouseEvent) {
     let rect = this.card.nativeElement.getBoundingClientRect();
@@ -53,6 +56,7 @@ export class CardComponent implements OnInit {
       location: { x: e.x, y: e.y },
       text: this.cardText,
     });
+    this.tryDeleteCard();
     this.card.nativeElement.style.width = '100%';
     this.dragging = false;
   }
