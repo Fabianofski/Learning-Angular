@@ -80,15 +80,16 @@ hr {
 
   height: 1rem;
   aspect-ratio: 1 / 1;
-  background-color: white;
+  background-color: orange;
+  color: white;
 
-  border: 1px solid #2d2d2d;
+  border: 1px solid orange;
   border-radius: 25%;
 }
 
 .tools button:hover {
-  background-color: orange;
-  color: white;
+  background-color: white;
+  color: orange;
 
   cursor: pointer;
 

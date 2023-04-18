@@ -21,6 +21,10 @@ export class ListComponent {
   text = '';
 
   ngAfterViewInit() {
+    this.updateLocation();
+  }
+
+  updateLocation() {
     let rect = this.listRef.nativeElement.getBoundingClientRect();
     this.list.location = { x: rect.left + rect.width / 2, y: rect.top };
   }
@@ -36,9 +40,5 @@ export class ListComponent {
 
   onCardRemove(index: number) {
     this.list.cards.splice(index, 1);
-  }
-
-  onCardMoved(card: Card) {
-    this.cardMoved.emit(card);
   }
 }

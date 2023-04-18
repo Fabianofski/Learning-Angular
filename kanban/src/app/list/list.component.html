@@ -13,7 +13,6 @@
     <app-card
       *ngFor="let cardText of list.cards; let index = index"
       [cardText]="cardText"
-      (cardMoved)="onCardMoved($event)"
       (removeCard)="onCardRemove(index)"
     ></app-card>
   </div>

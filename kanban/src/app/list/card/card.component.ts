@@ -8,6 +8,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { Card } from './card.model';
+import { ListsService } from '../../lists.service';
 
 @Component({
   selector: 'app-card',
@@ -16,12 +17,13 @@ import { Card } from './card.model';
 })
 export class CardComponent implements OnInit {
   @Input() cardText = '';
-  @Output() cardMoved = new EventEmitter<Card>();
   @Output() removeCard = new EventEmitter<void>();
   @ViewChild('card') card: ElementRef<HTMLDivElement>;
   dragging = false;
   offsetX = 0;
   offsetY = 0;
+
+  constructor(private listService: ListsService) {}
 
   ngOnInit() {
     document.addEventListener('mousemove', (e: MouseEvent) => {
@@ -52,7 +54,7 @@ export class CardComponent implements OnInit {
   }
 
   endDrag(e: MouseEvent) {
-    this.cardMoved.emit({
+    this.listService.moveCard({
       location: { x: e.x, y: e.y },
       text: this.cardText,
     });
