@@ -1,6 +1,6 @@
-import { Position } from '../position';
-import { Card } from '../list/card/card.model';
-import { ListModel } from '../list/list.model';
+import { PositionModel } from './position.model';
+import { Card } from './list/card/card.model';
+import { ListModel } from './list/list.model';
 
 export class ListsService {
   private lists = [
@@ -10,7 +10,18 @@ export class ListsService {
   ];
 
   getLists() {
-    return this.lists.slice();
+    return this.lists;
+  }
+
+  loadLists() {
+    let storedLists = localStorage.getItem('lists');
+    if (!storedLists) return;
+
+    this.lists = JSON.parse(storedLists)['data'];
+  }
+
+  saveLists() {
+    localStorage.setItem('lists', JSON.stringify({ data: this.lists }));
   }
 
   moveCard(card: Card) {
@@ -25,7 +36,7 @@ export class ListsService {
     }
 
     closestList.cards.push(card.text);
-    console.log(this.lists);
+    this.saveLists();
   }
 
   addList(name: string) {
@@ -33,6 +44,6 @@ export class ListsService {
   }
 }
 
-function distance(a: Position, b: Position): number {
+function distance(a: PositionModel, b: PositionModel): number {
   return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
 }

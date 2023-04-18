@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ListComponent } from './list/list.component';
-import { CardComponent } from './list/card/card.component';
+import { ListComponent } from './kanban/list/list.component';
+import { CardComponent } from './kanban/list/card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { KanbanComponent } from './kanban/kanban.component';

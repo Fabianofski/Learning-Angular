@@ -8,7 +8,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { Card } from './card.model';
-import { ListsService } from '../../kanban/lists.service';
+import { ListsService } from '../../lists.service';
 
 @Component({
   selector: 'app-card',

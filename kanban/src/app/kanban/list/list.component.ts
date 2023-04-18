@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ListModel } from './list.model';
 import { Card } from './card/card.model';
+import { ListsService } from '../lists.service';
 
 @Component({
   selector: 'app-list',
@@ -19,6 +20,8 @@ export class ListComponent {
   @Output() cardMoved = new EventEmitter<Card>();
   @ViewChild('listRef') listRef: ElementRef<HTMLDivElement>;
   text = '';
+
+  constructor(private listService: ListsService) {}
 
   ngAfterViewInit() {
     this.updateLocation();
@@ -35,10 +38,11 @@ export class ListComponent {
     this.list.cards.push(this.text);
     this.text = '';
 
-    console.log(this.list.cards);
+    this.listService.saveLists();
   }
 
   onCardRemove(index: number) {
     this.list.cards.splice(index, 1);
+    this.listService.saveLists();
   }
 }

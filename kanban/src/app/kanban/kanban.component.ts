@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ListsService } from './lists.service';
-import { ListModel } from '../list/list.model';
+import { ListModel } from './list/list.model';
 
 @Component({
   selector: 'app-kanban',
@@ -15,6 +15,7 @@ export class KanbanComponent {
   constructor(private listService: ListsService) {}
 
   ngOnInit() {
+    this.listService.loadLists();
     this.lists = this.listService.getLists();
   }
 }
