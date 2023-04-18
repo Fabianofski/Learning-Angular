@@ -1,6 +1,6 @@
-import { Position } from './position';
-import { Card } from './list/card/card.model';
-import { ListModel } from './list/list.model';
+import { Position } from '../position';
+import { Card } from '../list/card/card.model';
+import { ListModel } from '../list/list.model';
 
 export class ListsService {
   private lists = [
