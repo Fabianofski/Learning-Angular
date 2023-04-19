@@ -1,0 +1,87 @@
+<h1>Contact us!</h1>
+
+<form #f="ngForm" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label>First Name:</label>
+    <input
+      type="text"
+      ngModel
+      required
+      class="form-control"
+      name="firstname"
+      placeholder="First Name"
+      #fName="ngModel"
+    />
+    <div
+      *ngIf="!fName.valid && fName.touched; then fValid; else fInvalid"
+    ></div>
+    <ng-template #fValid
+      ><p style="color: red">First Name invalid</p></ng-template
+    >
+    <ng-template #fInvalid><p style="visibility: hidden">valid</p></ng-template>
+  </div>
+
+  <div class="form-group">
+    <label>Last Name:</label>
+    <input
+      type="text"
+      ngModel
+      required
+      class="form-control"
+      name="lastname"
+      placeholder="Last Name"
+      #lName="ngModel"
+    />
+    <div
+      *ngIf="!lName.valid && lName.touched; then lValid; else lInvalid"
+    ></div>
+    <ng-template #lValid
+      ><p style="color: red">Last Name invalid</p></ng-template
+    >
+    <ng-template #lInvalid><p style="visibility: hidden">valid</p></ng-template>
+  </div>
+
+  <div class="form-group col-span-2">
+    <label>E-Mail:</label>
+    <input
+      type="text"
+      ngModel
+      required
+      email
+      class="form-control"
+      name="email"
+      placeholder="E-Mail"
+      #email="ngModel"
+    />
+    <div
+      *ngIf="!email.valid && email.touched; then eValid; else eInvalid"
+    ></div>
+    <ng-template #eValid><p style="color: red">E-Mail invalid</p></ng-template>
+    <ng-template #eInvalid><p style="visibility: hidden">valid</p></ng-template>
+  </div>
+
+  <div class="form-group col-span-2">
+    <label>Your message:</label>
+    <textarea
+      ngModel
+      required
+      class="form-control"
+      name="message"
+      placeholder="..."
+      #message="ngModel"
+    ></textarea>
+    <div
+      *ngIf="!message.valid && message.touched; then mValid; else mInvalid"
+    ></div>
+    <ng-template #mValid
+      ><p style="color: red">Message can't be empty!</p></ng-template
+    >
+    <ng-template #mInvalid><p style="visibility: hidden">valid</p></ng-template>
+  </div>
+
+  <button type="submit" class="col-span-2 submit-btn" [disabled]="!f.valid">
+    Send
+  </button>
+</form>
+
+<p style="color: green" *ngIf="submitted">Submitted!</p>
