@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Poppins";
   src: local("Poppins"),
-    url("assets/fonts/Poppins-Regular.ttf") format("truetype");
+  url("assets/fonts/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -9,14 +9,14 @@
 @font-face {
   font-family: "Poppins";
   src: local("Poppins"),
-    url("assets/fonts/Poppins-Black.ttf") format("truetype");
+  url("assets/fonts/Poppins-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 
 :root {
   --text-shadow: 1px 1px 0 rgba(0, 0, 0, 1), 3px 3px 0 rgba(0, 0, 0, 1),
-    4px 4px 0 rgba(0, 0, 0, 1);
+  4px 4px 0 rgba(0, 0, 0, 1);
   --box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 

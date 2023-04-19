@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ListsService } from './lists.service';
 import { ListModel } from './list/list.model';
 
@@ -8,7 +8,7 @@ import { ListModel } from './list/list.model';
   styleUrls: ['./kanban.component.css'],
   providers: [ListsService],
 })
-export class KanbanComponent {
+export class KanbanComponent implements OnInit {
   lists: ListModel[] = [];
 
   constructor(private listService: ListsService) {}

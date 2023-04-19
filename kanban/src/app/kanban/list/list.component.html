@@ -1,19 +1,20 @@
-<div class="list" #listRef>
+<div #listRef class="list">
   <h3>{{ list.name }}</h3>
-  <div class="add-form">
+  <form (ngSubmit)="addCard()" class="add-form">
     <input
-      class="add-input"
-      type="text"
       [(ngModel)]="text"
+      class="add-input form-control"
+      name="text"
       placeholder="Enter card content..."
+      type="text"
     />
-    <button class="add-btn" type="button" (click)="addCard()">ADD</button>
-  </div>
+    <button class="add-btn" type="submit">ADD</button>
+  </form>
   <div class="card-container">
     <app-card
+      (removeCard)="onCardRemove(index)"
       *ngFor="let cardText of list.cards; let index = index"
       [cardText]="cardText"
-      (removeCard)="onCardRemove(index)"
     ></app-card>
   </div>
 </div>

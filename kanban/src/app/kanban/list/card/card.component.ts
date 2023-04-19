@@ -3,11 +3,10 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnInit,
   Output,
   ViewChild,
-  OnInit,
 } from '@angular/core';
-import { Card } from './card.model';
 import { ListsService } from '../../lists.service';
 
 @Component({

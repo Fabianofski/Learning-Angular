@@ -1,10 +1,10 @@
-<div class="card" [ngClass]="{ 'dragged-card': dragging }" #card>
+<div #card [ngClass]="{ 'dragged-card': dragging }" class="card">
   <div class="toolbar">
     <div
-      class="drag-area"
       (mousedown)="startDrag($event)"
       (mouseup)="endDrag($event)"
       [ngClass]="{ dragging: dragging }"
+      class="drag-area"
     ></div>
     <div class="tools">
       <button (click)="tryDeleteCard()" class="delete-button">X</button>

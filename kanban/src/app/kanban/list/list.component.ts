@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -15,7 +16,7 @@ import { ListsService } from '../lists.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
-export class ListComponent {
+export class ListComponent implements AfterViewInit {
   @Input() list = new ListModel('Default');
   @Output() cardMoved = new EventEmitter<Card>();
   @ViewChild('listRef') listRef: ElementRef<HTMLDivElement>;

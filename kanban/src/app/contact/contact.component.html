@@ -4,13 +4,13 @@
   <div class="form-group">
     <label>First Name:</label>
     <input
-      type="text"
-      ngModel
-      required
+      #fName="ngModel"
       class="form-control"
       name="firstname"
+      ngModel
       placeholder="First Name"
-      #fName="ngModel"
+      required
+      type="text"
     />
     <div
       *ngIf="!fName.valid && fName.touched; then fValid; else fInvalid"
@@ -24,13 +24,13 @@
   <div class="form-group">
     <label>Last Name:</label>
     <input
-      type="text"
-      ngModel
-      required
+      #lName="ngModel"
       class="form-control"
       name="lastname"
+      ngModel
       placeholder="Last Name"
-      #lName="ngModel"
+      required
+      type="text"
     />
     <div
       *ngIf="!lName.valid && lName.touched; then lValid; else lInvalid"
@@ -44,14 +44,14 @@
   <div class="form-group col-span-2">
     <label>E-Mail:</label>
     <input
-      type="text"
-      ngModel
-      required
-      email
-      class="form-control"
-      name="email"
-      placeholder="E-Mail"
       #email="ngModel"
+      class="form-control"
+      email
+      name="email"
+      ngModel
+      placeholder="E-Mail"
+      required
+      type="text"
     />
     <div
       *ngIf="!email.valid && email.touched; then eValid; else eInvalid"
@@ -63,12 +63,12 @@
   <div class="form-group col-span-2">
     <label>Your message:</label>
     <textarea
-      ngModel
-      required
+      #message="ngModel"
       class="form-control"
       name="message"
+      ngModel
       placeholder="..."
-      #message="ngModel"
+      required
     ></textarea>
     <div
       *ngIf="!message.valid && message.touched; then mValid; else mInvalid"
@@ -79,9 +79,9 @@
     <ng-template #mInvalid><p style="visibility: hidden">valid</p></ng-template>
   </div>
 
-  <button type="submit" class="col-span-2 submit-btn" [disabled]="!f.valid">
+  <button [disabled]="!f.valid" class="col-span-2 submit-btn" type="submit">
     Send
   </button>
 </form>
 
-<p style="color: green" *ngIf="submitted">Submitted!</p>
+<p *ngIf="submitted" style="color: green">Submitted!</p>
