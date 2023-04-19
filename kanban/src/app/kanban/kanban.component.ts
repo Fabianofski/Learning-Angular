@@ -9,7 +9,6 @@ import { ListModel } from './list/list.model';
   providers: [ListsService],
 })
 export class KanbanComponent {
-  title = 'Welcome to Kanban!';
   lists: ListModel[] = [];
 
   constructor(private listService: ListsService) {}
