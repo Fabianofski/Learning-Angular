@@ -68,11 +68,11 @@ hr {
 }
 
 .doing .toolbar {
-  background: linear-gradient(45deg, yellow, orange);
+  background: linear-gradient(45deg, orange, yellow);
 }
 
 .done .toolbar {
-  background: linear-gradient(45deg, green, orange);
+  background: linear-gradient(45deg, yellow, green);
 }
 
 .drag-area {
@@ -105,14 +105,38 @@ hr {
   height: 1rem;
   aspect-ratio: 1 / 1;
   background-color: white;
-  color: orange;
 
   border: 1px solid white;
   border-radius: 25%;
 }
 
-.tools button:hover {
+.todo .tools button {
+  color: orange;
+}
+
+.todo .tools button:hover {
   background-color: orange;
+}
+
+.doing .tools button {
+  color: yellow;
+}
+
+.doing .tools button:hover {
+  background-color: yellow;
+}
+
+.done .tools button {
+  color: green;
+}
+
+.done .tools button:hover {
+  background-color: green;
+}
+
+.todo .tools button:hover,
+.doing .tools button:hover,
+.done .tools button:hover {
   color: white;
 
   cursor: pointer;
