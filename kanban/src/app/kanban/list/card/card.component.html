@@ -1,4 +1,4 @@
-<div #card [ngClass]="{ 'dragged-card': dragging }" class="card">
+<div #card [ngClass]="{ 'dragged-card': dragging }" [class]="'card ' + list">
   <div class="toolbar">
     <div
       (mousedown)="startDrag($event)"

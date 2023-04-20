@@ -61,7 +61,18 @@ hr {
 
   height: 2rem;
   width: 100%;
-  background: orange;
+}
+
+.todo .toolbar {
+  background: linear-gradient(45deg, red, orange);
+}
+
+.doing .toolbar {
+  background: linear-gradient(45deg, yellow, orange);
+}
+
+.done .toolbar {
+  background: linear-gradient(45deg, green, orange);
 }
 
 .drag-area {

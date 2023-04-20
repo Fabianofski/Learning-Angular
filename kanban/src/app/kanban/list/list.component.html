@@ -15,6 +15,7 @@
       (removeCard)="onCardRemove(index)"
       *ngFor="let cardText of list.cards; let index = index"
       [cardText]="cardText"
+      [list]="list.name | lowercase"
     ></app-card>
   </div>
 </div>

@@ -16,6 +16,7 @@ import { ListsService } from '../../lists.service';
 })
 export class CardComponent implements OnInit {
   @Input() cardText = '';
+  @Input() list = '';
   @Output() removeCard = new EventEmitter<void>();
   @ViewChild('card') card: ElementRef<HTMLDivElement>;
   dragging = false;
